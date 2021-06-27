@@ -56,8 +56,8 @@ func iVerifyIfTheCutWasReallyMade() error {
 	return nil
 }
 
-func iWaitSecondsSoTheCutRequestCanBeProcessedAndCut(arg1 int) error {
-	return waitSeconds(arg1)
+func iWaitMinutesSoTheCutRequestCanBeProcessedAndCut(arg1 int) error {
+	return waitMinutes(arg1)
 }
 
 func theCutShouldBeInAProcessingState() error {
@@ -79,7 +79,7 @@ func theVideoIsDownloadedAndReadyToCut(arg1 string) error {
 func InitializeCutScenario(ctx *godog.ScenarioContext) {
 	ctx.Step(`^I send a cut request with start "([^"]*)" and end "([^"]*)"$`, iSendACutRequestWithStartAndEnd)
 	ctx.Step(`^I verify if the cut was really made$`, iVerifyIfTheCutWasReallyMade)
-	ctx.Step(`^I wait (\d+) minutes so the cut request can be processed and cut$`, iWaitSecondsSoTheCutRequestCanBeProcessedAndCut)
+	ctx.Step(`^I wait (\d+) minutes so the cut request can be processed and cut$`, iWaitMinutesSoTheCutRequestCanBeProcessedAndCut)
 	ctx.Step(`^the cut should be in a processing state$`, theCutShouldBeInAProcessingState)
 	ctx.Step(`^the video "([^"]*)" is downloaded and ready to cut$`, theVideoIsDownloadedAndReadyToCut)
 }

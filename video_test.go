@@ -58,8 +58,8 @@ func iVerifyIfTheVideoWasReallyDownloaded() error {
 	return videoShouldBeDownloaded(videoResponse["id"].(string))
 }
 
-func iWaitSecondsSoTheVideoCanBeProcessedAndDownloaded(arg1 int) error {
-	return waitSeconds(arg1)
+func iWaitMinutesSoTheVideoCanBeProcessedAndDownloaded(arg1 int) error {
+	return waitMinutes(arg1)
 }
 
 func iWantToDownloadTheVideoThatContainsTheId(arg1 string) error {
@@ -82,7 +82,7 @@ func theVideoShouldBeInAProcessingState() error {
 func InitializeVideoScenario(ctx *godog.ScenarioContext) {
 	ctx.Step(`^I send the download request with the output path "([^"]*)" and the video itself as opening and ending$`, iSendTheDownloadRequestWithTheOutputPathAndTheVideoItselfAsOpeningAndEnding)
 	ctx.Step(`^I verify if the video was really downloaded$`, iVerifyIfTheVideoWasReallyDownloaded)
-	ctx.Step(`^I wait (\d+) minutes so the video can be processed and downloaded$`, iWaitSecondsSoTheVideoCanBeProcessedAndDownloaded)
+	ctx.Step(`^I wait (\d+) minutes so the video can be processed and downloaded$`, iWaitMinutesSoTheVideoCanBeProcessedAndDownloaded)
 	ctx.Step(`^I want to download the video that contains the id "([^"]*)"$`, iWantToDownloadTheVideoThatContainsTheId)
 	ctx.Step(`^the video should be in a processing state$`, theVideoShouldBeInAProcessingState)
 }

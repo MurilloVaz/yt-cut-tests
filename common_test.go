@@ -70,7 +70,7 @@ func getCut(videoId string, cutStart string, cutEnd string) error {
 	return nil
 }
 
-func waitSeconds(seconds int) error {
-	<-time.After(time.Duration(rand.Int31n(int32(seconds))) * time.Second)
+func waitMinutes(minutes int) error {
+	<-time.After(time.Duration(rand.Int31n(int32(minutes))) * time.Minute)
 	return nil
 }
