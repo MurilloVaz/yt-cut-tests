@@ -82,7 +82,7 @@ func theVideoShouldBeInAProcessingState() error {
 func InitializeVideoScenario(ctx *godog.ScenarioContext) {
 	ctx.Step(`^I send the download request with the output path "([^"]*)" and the video itself as opening and ending$`, iSendTheDownloadRequestWithTheOutputPathAndTheVideoItselfAsOpeningAndEnding)
 	ctx.Step(`^I verify if the video was really downloaded$`, iVerifyIfTheVideoWasReallyDownloaded)
-	ctx.Step(`^I wait (\d+) seconds so the video can be processed and downloaded$`, iWaitSecondsSoTheVideoCanBeProcessedAndDownloaded)
+	ctx.Step(`^I wait (\d+) minutes so the video can be processed and downloaded$`, iWaitSecondsSoTheVideoCanBeProcessedAndDownloaded)
 	ctx.Step(`^I want to download the video that contains the id "([^"]*)"$`, iWantToDownloadTheVideoThatContainsTheId)
 	ctx.Step(`^the video should be in a processing state$`, theVideoShouldBeInAProcessingState)
 }
