@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"math/rand"
 	"net/http"
 	"strconv"
 	"time"
@@ -71,6 +70,7 @@ func getCut(videoId string, cutStart string, cutEnd string) error {
 }
 
 func waitMinutes(minutes int) error {
-	<-time.After(time.Duration(rand.Intn(minutes)) * time.Minute)
+	minutesInDuration := time.Duration(int64(minutes) * time.Minute.Nanoseconds())
+	<-time.After(minutesInDuration)
 	return nil
 }
